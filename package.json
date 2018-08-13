@@ -1,0 +1,32 @@
+{
+  "name": "twlv-chat-api",
+  "version": "1.0.0",
+  "description": "TWLV Chat API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:twlv/twlv-chat-api.git"
+  },
+  "author": "Ganesha <reekoheek@gmail.com> (http://sagara.id)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.3.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-xinix": "^1.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
+  },
+  "dependencies": {
+    "@twlv/core": "^0.2.10",
+    "@twlv/transport-sockjs": "^0.1.2",
+    "@twlv/transport-webrtc": "^0.1.3"
+  }
+}
