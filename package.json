@@ -27,6 +27,6 @@
   "dependencies": {
     "@twlv/core": "^0.2.10",
     "@twlv/transport-sockjs": "^0.1.2",
-    "@twlv/transport-webrtc": "^0.1.3"
+    "@twlv/transport-webrtc": "^0.1.4"
   }
 }
