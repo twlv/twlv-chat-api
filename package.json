@@ -4,9 +4,11 @@
   "description": "TWLV Chat API",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0"
+    "eslint-plugin-standard": "^3.1.0",
+    "husky": "^0.14.3"
   },
   "dependencies": {
     "@twlv/core": "^0.2.10",

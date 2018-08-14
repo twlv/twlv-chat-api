@@ -28,15 +28,14 @@ process.on('unhandledRejection', err => {
   });
   node.addListener(new SockJsListener({ server, prefix: SOCKJS_PREFIX }));
 
-  // node.on('message', message => {
-  //   debug(message);
-  // });
-
   let signaler = new WebRTCSignaler(node);
   await signaler.start();
+  debug('Signaler started');
 
   let commander = new Commander({ node });
   await commander.start();
+  debug('Commander started');
 
   await node.start();
+  debug('TWLV node started');
 })();
