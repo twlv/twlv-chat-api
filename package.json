@@ -31,5 +31,8 @@
     "@twlv/core": "^0.2.10",
     "@twlv/transport-sockjs": "^0.1.2",
     "@twlv/transport-webrtc": "^0.1.4"
+  },
+  "engines": {
+    "npm": "6.3.x"
   }
 }
