@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
+    "generate-key": "node ./scripts/generate-key.js",
     "dev": "nodemon index.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",

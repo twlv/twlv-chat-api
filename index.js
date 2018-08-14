@@ -17,6 +17,10 @@ process.on('unhandledRejection', err => {
 });
 
 (async () => {
+  debug('Starting twlv-chat-api...');
+  debug(`Network Id  = ${NETWORK_ID}`);
+  debug(`Sock Prefix = ${SOCKJS_PREFIX}`);
+
   let server = http.createServer();
   server.listen(PORT);
 
