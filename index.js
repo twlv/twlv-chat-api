@@ -4,6 +4,7 @@ const { Node, Identity } = require('@twlv/core');
 const { SockJsListener } = require('@twlv/transport-sockjs');
 const { WebRTCSignaler } = require('@twlv/transport-webrtc');
 const { Commander } = require('./commander');
+const { Api } = require('./bundles/api');
 
 const debug = require('debug')('twlv-chat-api:-');
 
@@ -21,25 +22,26 @@ process.on('unhandledRejection', err => {
   debug(`Network Id  = ${NETWORK_ID}`);
   debug(`Sock Prefix = ${SOCKJS_PREFIX}`);
 
-  let server = http.createServer();
-  server.listen(PORT);
-
   let identity = new Identity(PRIV_KEY);
 
   let node = new Node({
     networkId: NETWORK_ID,
     identity,
   });
-  node.addListener(new SockJsListener({ server, prefix: SOCKJS_PREFIX }));
 
   let signaler = new WebRTCSignaler(node);
+  let commander = new Commander({ node });
+  let api = new Api({ node, commander });
+
+  let server = http.createServer(api.callback());
+  server.listen(PORT);
+
+  node.addListener(new SockJsListener({ server, prefix: SOCKJS_PREFIX }));
+
   await signaler.start();
   debug('Signaler started');
-
-  let commander = new Commander({ node });
   await commander.start();
   debug('Commander started');
-
   await node.start();
   debug('TWLV node started');
 })();
